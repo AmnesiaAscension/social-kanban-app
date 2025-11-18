@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  client    String   // which client this belongs to
+  dayOfWeek String   // e.g. "Mon", "Tue", "Wed"
+  status    String   @default("planned") // planned, drafted, scheduled, posted
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
