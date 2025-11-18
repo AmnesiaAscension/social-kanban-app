@@ -86,5 +86,6 @@ app.delete("/tasks/:id", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`);
+  console.log(`Listening on http://localhost:${PORT}`);
+  console.log(`Health check at http://localhost:${PORT}/health`);
 });
